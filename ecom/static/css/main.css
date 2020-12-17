@@ -1,0 +1,12 @@
+.thumbnail{
+	width: auto;
+    height: 300px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row-image{
+    width: auto;
+	height: 100px; 
+}

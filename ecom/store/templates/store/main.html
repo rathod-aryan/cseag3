@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'store' %}">
-            <img src="{% static 'images/csealogo.png' %}" width="60">
+            <img src="{% static 'images/csealogo.png' %}" width="50">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,15 +23,17 @@
         <ul class="navbar-nav ml-auto">   
             
             <li class="nav-item">
-                <a href="#" class="btn btn-warning">
+                <a href="#" class="btn btn-outline-light btn-sm">
                     Login
                 </a>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+            <li class="nav-item mb-auto">
                 <a href="{% url 'cart' %}">
-                <img  id="cart-icon" src="{% static 'images/cart.png' %}" width="30">
+                    <button type="button" class="btn btn-outline-light btn-sm">
+                        Cart <span class="badge bg-danger">3</span>
+                      </button>
                 </a>
             </li>
             <li class="navbar-text">
