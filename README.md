@@ -1,13 +1,12 @@
 # cseag3
  CSEA Group Project 3
-web pages ( unlinked) are 
-main, store, checkout and cart
-
-working on templates and nav bar
-sinha will be wokring on DS
-(free of cost obvi)
-
-free labour
-
-no pizza for you guys
-
+ 
+ NOTE - (SUPER SERIOUS) -- "pip install Pillow" kar lena please before running the server.
+ 
+ Store page has been somwhat linked link add to cart button.
+ "item added!" notification
+ 
+ add a footer to main.html which is a mini about us.
+ 
+ need static templates for Login, Customer Dashboard.
+ add guest-user/logged-in user in nav bar
