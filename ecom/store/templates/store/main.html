@@ -23,20 +23,22 @@
         <ul class="navbar-nav ml-auto">   
             
             <li class="nav-item">
-                <a href="#" class="btn btn-outline-light btn-sm">
+                <a href="#" class="btn btn-warning">
                     Login
                 </a>
             </li>
-            
+        </ul>
+        <ul class="navbar-nav ms-auto">
             <li class="nav-item">
                 <a href="{% url 'cart' %}">
                 <img  id="cart-icon" src="{% static 'images/cart.png' %}" width="30">
                 </a>
             </li>
+            <li class="navbar-text">
+                &nbsp; &nbsp; CSEA, IITG &nbsp; &nbsp;
+            </li>
         </ul> 
-        <span class="navbar-text container-fluid collapse navbar-collapse">
-            CSEA, IITG &nbsp;&nbsp;
-        </span>
+        
     </nav>
     
 <div class="container">
