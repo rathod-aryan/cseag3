@@ -1,5 +1,12 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-    <h3>cart</h3>
+    <div class="row">
+        <div class="col-lg-12">
+        <a href="{% url 'store' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Continue Shopping</button></a>
+        <p style="float:left">Items : 3</p>
+        <div style="clear: both;"></div>
+        <p style="float:left"></p>
+        </div>
+    </div>
 {% endblock content %}
