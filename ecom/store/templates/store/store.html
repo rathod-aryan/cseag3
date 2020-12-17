@@ -3,38 +3,20 @@
 {% block content %}
 <div class="row">
     
+    {% for produt in products%}
+    <div class="col-lg-4 ">
+        <a href="#"><img class="thumbnail" src="{% static 'images/sampleproduct.png' %}"></a>
+        <hr>
+        <p style="float:left;font-size:1.5em"><strong>{{product.name}}</strong></p>
+        <p style="float:right;font-size:1.5em"><strong>{{product.price|floatformat:2}}</strong></p>
+        <div style="clear: both;"></div>
+        <p style="float:left;font-size:1em">Product Description</p>
+        <button  class="btn btn-outline-secondary add-btn btn-sm" style="float:right">Add to Cart</button>
+    </div>
+    {%endfor%}
+
+
     
-    <div class="col-lg-4 ">
-        <a href="#"><img class="thumbnail" src="{% static 'images/sampleproduct.png' %}"></a>
-        <hr>
-        <p style="float:left;font-size:1.5em"><strong>Product</strong></p>
-        <p style="float:right;font-size:1.5em"><strong>Rs. 1500</strong></p>
-        <div style="clear: both;"></div>
-        <p style="float:left;font-size:1em">Product Description</p>
-        <button  class="btn btn-outline-secondary add-btn btn-sm" style="float:right">Add to Cart</button>
-    </div>
-
-
-    <div class="col-lg-4 ">
-        <a href="#"><img class="thumbnail" src="{% static 'images/sampleproduct.png' %}"></a>
-        <hr>
-        <p style="float:left;font-size:1.5em"><strong>Product</strong></p>
-        <p style="float:right;font-size:1.5em"><strong>Rs. 1500</strong></p>
-        <div style="clear: both;"></div>
-        <p style="float:left;font-size:1em">Product Description</p>
-        <button  class="btn btn-outline-secondary add-btn btn-sm" style="float:right">Add to Cart</button>
-    </div>
-
-
-    <div class="col-lg-4 ">
-        <a href="#"><img class="thumbnail" src="{% static 'images/sampleproduct.png' %}"></a>
-        <hr>
-        <p style="float:left;font-size:1.5em"><strong>Product</strong></p>
-        <p style="float:right;font-size:1.5em"><strong>Rs. 1500</strong></p>
-        <div style="clear: both;"></div>
-        <p style="float:left;font-size:1em">Product Description</p>
-        <button  class="btn btn-outline-secondary add-btn btn-sm" style="float:right">Add to Cart</button>
-    </div>
 
 
 </div>
