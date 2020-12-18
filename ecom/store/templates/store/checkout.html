@@ -41,7 +41,6 @@
     </div>
     
     
-    
     <div class="col-lg-6">
         <p style="float:left;font-size:1.5em"><b>Order Summary</b></p>
         <a href="{% url 'cart' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Return to Cart</button></a>
@@ -58,19 +57,20 @@
                 
             </tr>
             
-        
+            {% for item in items %}
             <tr>
-                <td style="text-align:left"><img class="row-image" src="{% static 'images/sampleproduct.png' %}"></td>
-                <td style="text-align:center"><p>Hoodie</p></td>
-                <td style="text-align:center"><p>Rs.1500</p></td>
-                <td style="text-align:center"><p>3</p></td>
-                <td style="text-align:right"><p>Rs. 4500</p></td>
+                <td style="text-align:left"><img class="row-image" src="{{item.product.image.url}}"></td>
+                <td style="text-align:center"><p>{{item.product.name}}</p></td>
+                <td style="text-align:center"><p>Rs.{{item.product.price|floatformat:2}}</p></td>
+                <td style="text-align:center"><p>{{item.quantity}}</p></td>
+                <td style="text-align:right"><p>Rs. {{item.get_total}}</p></td>
             </tr>
+            {%endfor%}
         </table>
         <hr>
         
-        <p style="float:left">Total Items : 3</p>
-        <p style="float:right">Total : Rs.4500</p>
+        <p style="float:left">Total Items : {{order.get_cart_items}}</p>
+        <p style="float:right">Total : Rs.{{order.get_cart_total}}</p>
         <div style="clear: both;"></div>
     </div>
 </div>
