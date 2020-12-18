@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.http import JsonResponse
 import json
+from .utils import cookieCart
 
 
 def store(request):
@@ -9,7 +10,11 @@ def store(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer=customer, complete = False)
 	else:
-		order = {'get_cart_total':0}
+		cookieData= cookieCart(request)
+		cartItems = cookieData['cartItems']
+		order = cookieData['order']
+		items = cookieData['items']	
+	
 	products = Product.objects.all()
 	context = {'products':products, 'order':order}
 	return render(request, 'store/store.html', context)
@@ -19,10 +24,14 @@ def cart(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer = customer, complete = False)
 		items = order.orderitem_set.all()
+		context = {'items':items, 'order':order}
 	else:
-		items = []
-		order = {'get_cart_total':0, 'get_cart_items':0}
-	context = {'items':items, 'order':order}
+		cookieData= cookieCart(request)
+		cartItems = cookieData['cartItems']
+		order = cookieData['order']
+		items = cookieData['items']				
+		context = {'items':items, 'order':order, 'cartItems':cartItems}
+	
 	return render(request, 'store/cart.html', context)
 
 def checkout(request):
@@ -30,18 +39,20 @@ def checkout(request):
 		customer = request.user.customer
 		order, created = Order.objects.get_or_create(customer = customer, complete = False)
 		items = order.orderitem_set.all()
+		context = {'items':items, 'order':order}
 	else:
-		items = []
-		order = {'get_cart_total':0, 'get_cart_items':0}
-	context = {'items':items, 'order':order}
+		cookieData= cookieCart(request)
+		cartItems = cookieData['cartItems']
+		order = cookieData['order']
+		items = cookieData['items']	
+		context = {'items':items, 'order':order, 'cartItems':cartItems}
+	
 	return render(request, 'store/checkout.html', context)
 
 def updateItem(request):
 	data = json.loads(request.body)
 	pname= data['pname']
 	action = data['action']
-	print('Action:',action)
-	print('Product Name:',pname)
 
 	customer = request.user.customer
 	product = Product.objects.get(name=pname)
@@ -54,6 +65,8 @@ def updateItem(request):
 		orderItem.quantity = (orderItem.quantity + 1)
 	elif action== 'remove':
 		orderItem.quantity = (orderItem.quantity - 1)
+	elif action== 'del':
+		orderItem.quantity = 0
 
 	orderItem.save()
 
