@@ -32,7 +32,7 @@
             <li class="nav-item mb-auto">
                 <a href="{% url 'cart' %}">
                     <button type="button" class="btn btn-outline-light btn-sm">
-                        Cart <span class="badge bg-danger">3</span>
+                        Cart <span class="badge bg-danger">{{order.get_cart_items}}</span>
                       </button>
                 </a>
             </li>

@@ -2,8 +2,13 @@ from django.shortcuts import render
 from .models import *
 
 def store(request):
+	if request.user.is_authenticated:
+		customer = request.user.customer
+		order, created = Order.objects.get_or_create(customer=customer, complete = False)
+	else:
+		order = {'get_cart_total':0}
 	products = Product.objects.all()
-	context = {'products':products}
+	context = {'products':products, 'order':order}
 	return render(request, 'store/store.html', context)
 
 def cart(request):
