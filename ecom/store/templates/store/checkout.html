@@ -1,5 +1,77 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-    <h3>checkout</h3>
+<div class="row">
+    <div class="col-lg-6">
+        <form id="form">
+            <p style="float:left;font-size:1.5em"><b>Shipping Information</b></p>
+            <input id="form-button" class="btn btn-secondary" type="submit" value="Continue" style="float: right;">
+        <div style="clear: both;"></div>
+        <hr>
+            <div id="user-info">
+                <div class="form-field">
+                    <input required class="form-control" type="text" name="name" placeholder="Name">
+                </div>
+                <div class="form-field">
+                    <input required class="form-control" type="email" name="email" placeholder="Email">
+                </div>
+            </div>
+            
+            <div id="shipping-info">
+                <div class="form-field">
+                    <input class="form-control" type="text" name="address" placeholder="Address">
+                </div>
+                <div class="form-field">
+                    <input class="form-control" type="text" name="city" placeholder="City">
+                </div>
+                <div class="form-field">
+                    <input class="form-control" type="text" name="state" placeholder="State">
+                </div>
+                <div class="form-field">
+                    <input class="form-control" type="text" name="zipcode" placeholder="Pincode">
+                </div>
+            </div>
+            
+            
+        </form>
+        <br>
+        <div class="box-element hidden" id="payment-info">
+            <small>Paypal Options</small>
+        </div>
+    </div>
+    
+    
+    
+    <div class="col-lg-6">
+        <p style="float:left;font-size:1.5em"><b>Order Summary</b></p>
+        <a href="{% url 'cart' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Return to Cart</button></a>
+        <div style="clear: both;"></div>
+        <hr>
+        <table style="width:100%">
+            <tr>
+                
+                <th style="text-align:left">Image</th>
+                <th style="text-align:center">Item</th>
+                <th style="text-align:center">Price</th>
+                <th style="text-align:center">Quantity</th>
+                <th style="text-align:right">Total</th>
+                
+            </tr>
+            
+        
+            <tr>
+                <td style="text-align:left"><img class="row-image" src="{% static 'images/sampleproduct.png' %}"></td>
+                <td style="text-align:center"><p>Hoodie</p></td>
+                <td style="text-align:center"><p>Rs.1500</p></td>
+                <td style="text-align:center"><p>3</p></td>
+                <td style="text-align:right"><p>Rs. 4500</p></td>
+            </tr>
+        </table>
+        <hr>
+        
+        <p style="float:left">Total Items : 3</p>
+        <p style="float:right">Total : Rs.4500</p>
+        <div style="clear: both;"></div>
+    </div>
+</div>
 {% endblock content %}

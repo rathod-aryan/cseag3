@@ -1,3 +1,16 @@
+html, body{
+    height: 100%;
+}
+
+.container{
+    min-height: 100%;
+}
+
+.bg-dark{
+    background-color: #303036;
+    
+}
+
 .thumbnail{
 	width: auto;
     height: 350px;
@@ -14,3 +27,35 @@
 table {
     border-spacing: 50px 10px;
   }
+
+.footer{
+    background: #303036;
+    color: #a5a5a5;
+    height: 135px;
+    position: relative;
+    padding-top:15px;
+    padding-bottom:5px;
+    width: 100%;
+}
+
+.footer .footer-bottom{
+    background: #343a40;
+    color: #686868;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    padding-top:5px;
+    padding-bottom:5px;
+    width: 100%;
+}
+
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+
+.hidden{
+    display: none!important;
+}

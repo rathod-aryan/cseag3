@@ -1,19 +1,10 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-    <div class="row">
-        <div class="col-lg-12">
-            <a href="{% url 'store' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Continue Shopping</button></a>
-            <p style="float:left">Items : 3</p>
-            <div style="clear: both;"></div>
-            <p style="float:left">Total : Rs. 4500</p>
-            <a href="{% url 'checkout' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Checkout</button></a>
-            <div style="clear: both;"></div>
-        </div>
-    </div>
     
-        <div class="cart-row">
-            <table style="width:100%">
+    
+    <div class="cart-row">
+        <table style="width:100%">
                 <tr>
                     <th>Image</th>
                     <th>Item</th>
@@ -38,6 +29,18 @@
                     </p></td>
                     <td><p>Rs. 4500</p></td>
                 </tr>
-            </table>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="{% url 'store' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Continue Shopping</button></a>
+            <p style="float:left">Items : 3</p>
+            <div style="clear: both;"></div>
+            <p style="float:left">Total : Rs. 4500</p>
+            <a href="{% url 'checkout' %}"><button  class="btn btn-outline-secondary btn-sm" style="float:right">Checkout</button></a>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
             
 {% endblock content %}
