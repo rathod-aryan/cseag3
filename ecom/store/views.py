@@ -104,3 +104,19 @@ def processOrder(request):
 	else:
 		print("User is not logged in!")
 	return JsonResponse('Payment Complete!', safe = False)
+
+def signin(request):
+	context = {}
+	return render(request, 'store/signin.html', context)
+
+def signup(request):
+	context = {}
+	return render(request, 'store/signup.html', context)
+
+def dashboard(request):
+	context = {}
+	return render(request, 'store/dashboard.html', context)
+
+def fgtpsw(request):
+	context = {}
+	return render(request, 'store/fgtpsw.html', context)

@@ -59,3 +59,23 @@ table {
 .hidden{
     display: none!important;
 }
+
+
+a:link {
+    color:#686868;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: : #686868;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
