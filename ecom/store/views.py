@@ -1,10 +1,17 @@
-from django.shortcuts import render
-from .models import *
-from django.http import JsonResponse
-import json
-from .utils import cookieCart, guestOrder
-import datetime
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.forms import inlineformset_factory
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse, HttpResponse
+from django.contrib import messages
 
+
+from .models import *
+from .utils import cookieCart, guestOrder
+from .forms import CreateUserForm
+import json
+import datetime
 
 def store(request):
 	if request.user.is_authenticated:
@@ -105,17 +112,41 @@ def processOrder(request):
 	return JsonResponse('Payment Complete!', safe = False)
 
 def signin(request):
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+
+		user = authenticate(request, username=username,password=password)
+		if user is not None :
+			login(request, user)
+			return redirect('store')
+		else :
+			messages.info(request, 'Incorrect Credentials. Please try again')
+		
+
 	context = {}
 	return render(request, 'store/signin.html', context)
 
 def signup(request):
-	context = {}
+	form = CreateUserForm()
+	if request.method == 'POST':
+		form = CreateUserForm(request.POST)
+		if form.is_valid():
+			form.save()
+			user = User.objects.get(username=form.cleaned_data.get('username'))
+			fname = form.cleaned_data.get('first_name')
+			lname = form.cleaned_data.get('last_name')
+			name = fname + ' ' + lname
+			email = form.cleaned_data.get('email')
+			customer = Customer.objects.create(name = name, user = user, email=email)
+			messages.success(request, 'Account Created!')
+			return redirect('signin')
+	
+
+	context = {'form':form}
 	return render(request, 'store/signup.html', context)
 
-def dashboard(request):
-	context = {}
-	return render(request, 'store/dashboard.html', context)
+def signout(request):
+	logout(request)
+	return redirect('store')
 
-def fgtpsw(request):
-	context = {}
-	return render(request, 'store/fgtpsw.html', context)
