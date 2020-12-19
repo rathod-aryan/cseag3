@@ -8,7 +8,7 @@
         <a href="#"><img class="thumbnail" src="{{product.image.url}}"></a>
         <hr>
         <p style="float:left;font-size:1.5em"><strong>{{product.name}}</strong></p>
-        <p style="float:right;font-size:1.5em"><strong>{{product.price|floatformat:2}}</strong></p>
+        <p style="float:right;font-size:1.5em"><strong>Rs. {{product.price|floatformat:2}}</strong></p>
         <div style="clear: both;"></div>
         <p style="float:left;font-size:1em">Product Description</p>
         <button  data-product={{product.name}} data-action="add" 
