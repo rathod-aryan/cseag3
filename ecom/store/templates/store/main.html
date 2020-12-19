@@ -2,7 +2,8 @@
 {% load static %}
 
 <html>
-    <head> 
+    <head>
+        <link rel="shortcut icon" href=""> 
         <title>Ecom</title>
         
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
@@ -24,7 +25,7 @@
                 }
                 return cookieValue;
             }
-            const csrftoken = getToken('csrftoken');
+            var csrftoken = getToken('csrftoken');
 
             function getCookie(name){
                 var n = document.cookie.split(";");
