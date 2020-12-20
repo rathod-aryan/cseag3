@@ -33,10 +33,10 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete = models.SET_NULL, null = True, blank = True)
     date_ordered =  models.DateTimeField(auto_now_add = True)
     complete = models.BooleanField(default = False)
-    transaction_id = models.CharField(max_length = 100, null=True)
+    transaction_id = models.CharField(max_length = 100, null=True, default="not_paid")
 
     def __str__(self):
-        return str(self.id)
+        return self.transaction_id
     
     
     @property
