@@ -2,7 +2,25 @@
 This is a sample application that demonstrates an E-commerce website. The application loads products from a SQLite3 database and displays them. Users can select items and add them to their shopping cart and checkout with or without creating an account. Payment portal has PayPal integration. Password recovery for user accounts has been implemented through Mail Transfer Protocol.
 
 # Demonstration
-*placeholder*
+**Home/Store Page**
+
+![](/demophoto/store.png)
+
+**Cart Page**
+
+![](/demophoto/cart.png)
+
+**Checkout Page**
+
+![](/demophoto/checkout.png)
+
+**Sign In Page**
+
+![](/demophoto/signin.png)
+
+**Sign Up Page**
+
+![](/demophoto/signup.png)
 
 # Getting Started
 To get started you can simply clone this `cseag3` repository and install the dependencies.
